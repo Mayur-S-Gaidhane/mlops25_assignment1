@@ -5,7 +5,7 @@ Automated ML workflow to predict house prices (Boston dataset) using classical M
 - Branches
   - `main`: README only (per instructions).
   - `reg`: 3 baseline regressors (Linear_Regression,Ridge_Regression,RandomForestRegressor).
-  - `hyper`: Hyperparameter tuning of RandomForest on `n_estimators ∈ {50,100,200}`.
+  - `hyper`: Hyperparameter tuning of RandomForest on `n_estimators ∈ {50,100,150}`.
 
 ## Local run
 ```bash
@@ -16,4 +16,4 @@ pip install -r requirements.txt
 python regression.py --mode reg ( for reg_branch )  
 python regression.py --mode hyper ( for hyper_branch)
 
-Please refer README.md from reg_branch and hyper_branch for more info.
+Please refer README.md from reg_branch and hyper_branch for more info .
