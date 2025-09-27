@@ -15,3 +15,16 @@ conda activate mlops-a1
 pip install -r requirements.txt
 python regression.py --mode reg ( for reg_branch )  
 python regression.py --mode hyper ( for hyper_branch)
+
+## For Regresion 
+
+# 2) Create reg branch: add code + CI
+git checkout -b reg
+mkdir -p .github/workflows
+# create files: utils.py, regression.py, requirements.txt, .github/workflows/ci.yml
+git add .
+git commit -m "feat: regression baseline + CI"
+git push -u origin reg
+
+
+
