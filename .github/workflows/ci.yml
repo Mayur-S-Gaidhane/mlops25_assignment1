@@ -5,7 +5,8 @@ name: MLOps Regression Workflow
 on:
   push:
     branches:
-      - reg_branch # This workflow runs ONLY on pushes to reg_branch
+      - reg_branch
+      - hyper_branch # Added this line to trigger on hyper_branch too.
 
 jobs:
   build-and-test:

@@ -1,7 +1,6 @@
-# regression.py
+# regression.py (for hyper_branch)
 
 import utils
-from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.ensemble import RandomForestRegressor
 
 def main():
@@ -9,17 +8,16 @@ def main():
     df = utils.load_data()
     X_train, X_test, y_train, y_test = utils.split_data(df)
 
-    # Define the models to compare
-    models = {
-        "Linear Regression": LinearRegression(),
-        "Ridge Regression": Ridge(alpha=1.0),
-        "Random Forest Regressor": RandomForestRegressor(n_estimators=100, random_state=42)
-    }
+    # Define hyperparameter values to test
+    n_estimator_values = [50, 100, 150]
 
-    print("--- Model Performance Comparison ---")
+    print("--- Hyperparameter Tuning for RandomForestRegressor ---")
 
-    # Train and evaluate each model
-    for name, model in models.items():
+    # Loop through the hyperparameter values
+    for n in n_estimator_values:
+        # Create a model with the specific hyperparameter
+        model = RandomForestRegressor(n_estimators=n, random_state=42)
+
         # Train the model
         trained_model = utils.train_model(model, X_train, y_train)
 
@@ -27,7 +25,7 @@ def main():
         mse, r2 = utils.evaluate_model(trained_model, X_test, y_test)
 
         # Print the performance metrics
-        print(f"\nModel: {name}")
+        print(f"\nHyperparameter: n_estimators = {n}")
         print(f"  Mean Squared Error (MSE): {mse:.4f}")
         print(f"  R-squared (R2) Score: {r2:.4f}")
 

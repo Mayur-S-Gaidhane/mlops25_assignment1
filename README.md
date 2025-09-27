@@ -18,13 +18,14 @@ python regression.py --mode hyper ( for hyper_branch)
 
 ## For Regresion 
 
-# 2) Create reg branch: add code + CI
-git checkout -b reg
+# 2) # 3) Create hyper branch from main and add same files
+git checkout -b hyper main
 mkdir -p .github/workflows
-# create files: utils.py, regression.py, requirements.txt, .github/workflows/ci.yml
+# add the SAME files (utils.py, regression.py, requirements.txt, ci.yml)
+# update regression.py and ci.yml for hyperparameter tuning .
 git add .
-git commit -m "feat: regression baseline + CI"
-git push -u origin reg
+git commit -m "feat: RF hyperparameter tuning (n_estimators) + CI"
+git push -u origin hyper_branch
 
 
 
